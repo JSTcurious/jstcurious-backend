@@ -21,7 +21,7 @@ app.add_middleware(
 
 # Hugging Face API token and model URL
 HF_API_TOKEN = os.getenv("HF_API_TOKEN")
-HF_MODEL_URL = "https://api-inference.huggingface.co/models/gpt2"
+HF_MODEL_URL = "https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-alpha"
 
 # Define input schema
 class ChatInput(BaseModel):
