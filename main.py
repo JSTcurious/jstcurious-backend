@@ -18,7 +18,7 @@ app.add_middleware(
 )
 
 HF_API_TOKEN = os.getenv("HF_API_TOKEN")
-HF_MODEL_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1"
+HF_MODEL_URL = "https://api-inference.huggingface.co/models/gpt2"
 
 class ChatInput(BaseModel):
     message: str
