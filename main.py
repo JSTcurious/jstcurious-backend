@@ -32,7 +32,17 @@ async def chat(input: ChatInput):
     payload = {"inputs": input.message}
 
     response = requests.post(HF_MODEL_URL, headers=headers, json=payload)
-    result = response.json()
+
+    try:
+        result = response.json()
+    except Exception as e:
+        return {"error": "Failed to parse response", "status_code": response.status_code, "text": response.text}
+
+    if isinstance(result, list) and "generated_text" in result[0]:
+        return {"reply": result[0]["generated_text"]}
+
+    return {"error": "Unexpected response format", "raw": result}
+
 
     if isinstance(result, list) and "generated_text" in result[0]:
         return {"reply": result[0]["generated_text"]}
